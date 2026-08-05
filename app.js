@@ -5,6 +5,12 @@ const dialogType = document.querySelector("#dialogType");
 const dialogTitle = document.querySelector("#dialogTitle");
 const dialogYear = document.querySelector("#dialogYear");
 const dialogDescription = document.querySelector("#dialogDescription");
+const dialogEvidence = document.querySelector("#dialogEvidence");
+const evidenceFields = [
+  ["atTime", "#dialogAtTimeRow", "#dialogAtTime"],
+  ["lookingBack", "#dialogLookingBackRow", "#dialogLookingBack"],
+  ["stillOpen", "#dialogStillOpenRow", "#dialogStillOpen"],
+];
 const projects = document.querySelectorAll(".project");
 
 const resetDialogMedia = () => {
@@ -34,6 +40,15 @@ const openProject = (project) => {
   dialogTitle.classList.toggle("is-long", project.dataset.title.length > 28);
   dialogYear.textContent = project.dataset.year || "";
   dialogDescription.textContent = project.dataset.description || "";
+  let hasEvidence = false;
+  evidenceFields.forEach(([dataKey, rowSelector, valueSelector]) => {
+    const value = project.dataset[dataKey] || "";
+    const row = document.querySelector(rowSelector);
+    document.querySelector(valueSelector).textContent = value;
+    row.hidden = !value;
+    hasEvidence ||= Boolean(value);
+  });
+  dialogEvidence.hidden = !hasEvidence;
   dialog.showModal();
 };
 

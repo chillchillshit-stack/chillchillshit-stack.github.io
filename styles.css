@@ -43,6 +43,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--blue); outline-
 section { scroll-margin-top: var(--header-h); }
 .practice-hero { display: grid; grid-template-columns: minmax(360px, .72fr) minmax(0, 1.28fr); gap: 0; padding: clamp(26px, 3vw, 48px) var(--gutter) clamp(70px, 8vw, 130px); border-bottom: 1px solid var(--rule); }
 .hero-copy { position: relative; z-index: 2; align-self: center; padding: clamp(50px, 8vw, 130px) 0; }
+.hero-copy .hero-kicker { margin: 0 0 18px; color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .12em; }
 .hero-copy h1 { width: 135%; margin: 0; font-family: var(--display); font-size: clamp(64px, 7.2vw, 116px); font-weight: 400; line-height: .84; letter-spacing: -.055em; white-space: nowrap; }
 .hero-copy p { margin: clamp(30px, 4vw, 58px) 0 0; color: #b0b0ac; font-size: clamp(15px, 1.35vw, 21px); line-height: 1.35; }
 .text-link, .open-project { display: inline-flex; align-items: center; gap: 16px; margin-top: 30px; padding-bottom: 6px; border-bottom: 1px solid var(--blue); color: var(--blue); cursor: pointer; font-size: 10px; font-weight: 800; letter-spacing: .12em; }
@@ -127,8 +128,36 @@ section { scroll-margin-top: var(--header-h); }
 .research-board img { object-fit: contain; }
 
 .formation-section { padding: clamp(80px, 10vw, 150px) var(--gutter); border-bottom: 1px solid var(--rule); }
-.formation-image { width: 100%; height: clamp(270px, 33vw, 520px); margin-top: 38px; background: #0b0b0b; }
-.formation-image img { object-fit: cover; }
+.archive-heading { display: grid; grid-template-columns: 1fr minmax(280px, .7fr); gap: 40px; align-items: end; }
+.archive-heading p { max-width: 36em; margin: 0; color: #aaa; font-size: 13px; line-height: 1.5; }
+
+.trajectory-section { padding: clamp(84px, 11vw, 170px) var(--gutter); border-bottom: 1px solid var(--rule); }
+.trajectory-intro { display: grid; grid-template-columns: .55fr 1.2fr .85fr; gap: clamp(24px, 4vw, 70px); align-items: start; padding-bottom: clamp(52px, 7vw, 100px); }
+.section-eyebrow { margin: 8px 0 0; color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+.trajectory-intro h2 { margin: 0; font-family: var(--display); font-size: clamp(54px, 6.8vw, 108px); font-weight: 400; line-height: .82; letter-spacing: -.055em; }
+.trajectory-statement { padding-top: 5px; }
+.trajectory-statement p { margin: 0 0 18px; color: #aaa; font-size: 13px; line-height: 1.55; }
+.trajectory-statement strong { color: var(--white); font-weight: 500; }
+.trajectory-track { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+.trajectory-phase { display: grid; grid-template-columns: minmax(170px, .42fr) minmax(280px, .9fr) minmax(280px, 1fr); gap: clamp(20px, 3vw, 48px); padding: clamp(28px, 4.5vw, 68px) 0; border-bottom: 1px solid var(--rule); }
+.trajectory-phase > header { display: grid; grid-template-columns: 34px 1fr; align-content: start; column-gap: 12px; }
+.trajectory-phase > header span { color: var(--blue); font-family: var(--display); font-size: 28px; line-height: 1; }
+.trajectory-phase > header h3 { margin: 0; font-size: clamp(25px, 2.8vw, 46px); font-weight: 500; line-height: .9; letter-spacing: -.04em; }
+.trajectory-phase > header small { grid-column: 2; margin-top: 10px; color: #777; font-size: 10px; letter-spacing: .12em; }
+.trajectory-media { aspect-ratio: 16 / 10; background: #0a0a0a; }
+.trajectory-media img, .trajectory-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.trajectory-chain { display: grid; grid-template-columns: 1fr 28px 1fr; align-items: center; gap: 8px; }
+.trajectory-chain > span { color: var(--blue); text-align: center; }
+.trajectory-thumb { aspect-ratio: 4 / 3; background: #0a0a0a; }
+.evidence-notes { margin: 0; }
+.evidence-notes > div { display: grid; grid-template-columns: 110px 1fr; gap: 18px; padding: 12px 0; border-top: 1px solid var(--rule); }
+.evidence-notes > div:last-child { border-bottom: 1px solid var(--rule); }
+.evidence-notes dt { color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
+.evidence-notes dd { margin: 0; color: #b9b9b5; font-size: 12px; line-height: 1.45; }
+.phase-pullquote { align-self: start; margin: 0; font-family: var(--display); font-size: clamp(28px, 3.2vw, 50px); line-height: 1; letter-spacing: -.035em; }
+.trajectory-phase--current { background: #0b0b0a; box-shadow: 0 0 0 100vmax #0b0b0a; clip-path: inset(0 -100vmax); }
+.experiment-status { margin: -24px 0 34px; color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .13em; }
+.experiment-question { max-width: 42em; color: #858581 !important; font-size: 12px !important; line-height: 1.5 !important; }
 .formation-timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 28px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
 .formation-timeline li { min-width: 0; padding: 20px 20px 4px 0; border-right: 1px solid var(--rule); }
 .formation-timeline li + li { padding-left: 20px; }
@@ -167,6 +196,10 @@ section { scroll-margin-top: var(--header-h); }
 .dialog-copy p { margin: 0 0 12px; color: #aaa; font-size: 11px; line-height: 1.45; letter-spacing: .065em; }
 .dialog-copy #dialogType { color: var(--blue); }
 .dialog-copy #dialogDescription { max-width: 34em; margin-top: 12px; color: #c4c4c0; font-size: 13px; letter-spacing: .01em; }
+.dialog-evidence { margin: 22px 0 0; }
+.dialog-evidence > div { padding: 10px 0; border-top: 1px solid var(--rule); }
+.dialog-evidence dt { margin-bottom: 5px; color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
+.dialog-evidence dd { margin: 0; color: #a9a9a5; font-size: 11px; line-height: 1.45; }
 .dialog-close { position: fixed; z-index: 2; top: 16px; right: 16px; width: 42px; height: 42px; border: 1px solid var(--white); color: var(--white); background: var(--black); cursor: pointer; font-size: 28px; line-height: 1; }
 
 @media (max-width: 900px) {
@@ -186,6 +219,11 @@ section { scroll-margin-top: var(--header-h); }
   .spine-steps li:nth-child(n + 3) { border-top: 1px solid var(--rule); }
   .spine-steps li:nth-child(3) { padding-left: 0; }
   .chapter-feature, .platform-grid, .version-layout, .research-section { grid-template-columns: 1fr; }
+  .trajectory-intro { grid-template-columns: 1fr 1.4fr; }
+  .trajectory-intro .section-eyebrow { grid-column: 1 / -1; }
+  .trajectory-phase { grid-template-columns: minmax(150px, .45fr) 1fr; }
+  .trajectory-phase .evidence-notes { grid-column: 2; }
+  .archive-heading { grid-template-columns: 1fr; }
   .feature-meta { padding: 20px 0 8px; }
   .compact-projects { width: 100%; }
   .platform-side { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
@@ -233,10 +271,18 @@ section { scroll-margin-top: var(--header-h); }
   .city-project > img { height: 55vw; }
   .research-section { padding-right: 0; padding-left: 0; }
   .research-copy { padding: 0 var(--gutter); }
+  .research-copy, .research-board { min-width: 0; }
+  .research-copy h2 { max-width: 100%; font-size: clamp(44px, 13vw, 58px); overflow-wrap: anywhere; }
   .research-board { min-height: 75vw; }
+  .trajectory-section { padding-right: var(--gutter); padding-left: var(--gutter); }
+  .trajectory-intro { grid-template-columns: 1fr; }
+  .trajectory-intro h2 { font-size: clamp(48px, 15vw, 72px); }
+  .trajectory-phase { grid-template-columns: 1fr; }
+  .trajectory-phase .evidence-notes { grid-column: 1; }
+  .trajectory-chain { grid-template-columns: 1fr 24px 1fr; }
+  .evidence-notes > div { grid-template-columns: 96px 1fr; }
   .formation-section, .index-section { padding-right: 0; padding-left: 0; }
-  .formation-section > .section-title, .formation-timeline, .index-section > .section-title, .work-index { margin-right: var(--gutter); margin-left: var(--gutter); }
-  .formation-image { height: 72vw; }
+  .archive-heading, .formation-timeline, .index-section > .section-title, .work-index { margin-right: var(--gutter); margin-left: var(--gutter); }
   .formation-timeline { grid-template-columns: 1fr 1fr; }
   .formation-timeline li:nth-child(2) { border-right: 0; }
   .formation-timeline li:nth-child(n + 3) { border-top: 1px solid var(--rule); }
