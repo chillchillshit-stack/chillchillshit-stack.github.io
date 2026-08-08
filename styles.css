@@ -41,7 +41,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--blue); outline-
 .site-header nav a.is-active { color: var(--blue); }
 
 section { scroll-margin-top: var(--header-h); }
-.legacy-video-background { position: fixed; z-index: 0; inset: var(--header-h) 0 0; overflow: hidden; background: #050505 url("https://i.ytimg.com/vi/G_gnwcQUXeY/maxresdefault.jpg") center / cover no-repeat; }
+.legacy-video-background { position: fixed; z-index: 0; inset: var(--header-h) 0 0; overflow: hidden; background: #050505 url("./assets/background-poster.jpg") center / cover no-repeat; }
 .legacy-video-background::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(5 5 5 / .86) 0%, rgb(5 5 5 / .56) 42%, rgb(5 5 5 / .28) 76%), linear-gradient(0deg, rgb(5 5 5 / .72) 0%, rgb(5 5 5 / .16) 58%, rgb(5 5 5 / .28) 100%); }
 .legacy-video-background video { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; pointer-events: none; }
 .site-header, main, .site-footer { position: relative; }
@@ -350,7 +350,7 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .site-footer { grid-template-columns: 1fr; align-items: start; }
   .site-footer > a { justify-self: start; }
   .project-dialog[open] { grid-template-columns: 1fr; }
-  .dialog-media, .dialog-media img, .dialog-media iframe { min-height: 0; height: 52vh; }
+  .dialog-media, .dialog-media img, .dialog-media iframe { min-height: 0; height: 36vh; }
   .dialog-copy { border-top: 1px solid var(--rule); border-left: 0; }
 }
 
