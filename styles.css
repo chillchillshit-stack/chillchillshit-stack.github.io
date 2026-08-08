@@ -221,6 +221,8 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .dialog-facts > div, .dialog-evidence > div { padding: 10px 0; border-top: 1px solid var(--rule); }
 .dialog-facts dt, .dialog-evidence dt { margin-bottom: 5px; color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
 .dialog-facts dd, .dialog-evidence dd { margin: 0; color: #a9a9a5; font-size: 11px; line-height: 1.45; }
+.copy-project-link { align-self: flex-start; margin-top: 22px; padding: 0 0 7px; border-bottom: 1px solid var(--blue); color: var(--blue); cursor: pointer; font-size: 9px; font-weight: 800; letter-spacing: .12em; }
+.copy-project-link:hover, .copy-project-link:focus-visible { color: var(--white); border-color: var(--white); }
 .dialog-close { position: fixed; z-index: 2; top: 16px; right: 16px; width: 42px; height: 42px; border: 1px solid var(--white); color: var(--white); background: var(--black); cursor: pointer; font-size: 28px; line-height: 1; }
 
 @media (max-width: 900px) {

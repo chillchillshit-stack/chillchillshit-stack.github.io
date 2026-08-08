@@ -7,6 +7,7 @@ const dialogYear = document.querySelector("#dialogYear");
 const dialogDescription = document.querySelector("#dialogDescription");
 const dialogFacts = document.querySelector("#dialogFacts");
 const dialogEvidence = document.querySelector("#dialogEvidence");
+const copyProjectLink = document.querySelector("#copyProjectLink");
 const factFields = [
   ["format", "#dialogFormatRow", "#dialogFormat"],
   ["duration", "#dialogDurationRow", "#dialogDuration"],
@@ -17,7 +18,9 @@ const evidenceFields = [
   ["lookingBack", "#dialogLookingBackRow", "#dialogLookingBack"],
   ["stillOpen", "#dialogStillOpenRow", "#dialogStillOpen"],
 ];
-const projects = document.querySelectorAll(".project");
+const projects = [...document.querySelectorAll(".project")];
+let projectReturnUrl = `${window.location.pathname}${window.location.hash}`;
+let activeProjectKey = "";
 
 const projectDetails = {
   "body-sequencer": {
@@ -156,10 +159,25 @@ const resetDialogMedia = () => {
   dialogImage.style.display = "none";
 };
 
-const openProject = (project) => {
+const projectUrl = (key) => {
+  const url = new URL(window.location.href);
+  url.searchParams.set("work", key);
+  url.hash = "";
+  return url;
+};
+
+const openProject = (project, { syncUrl = true } = {}) => {
   const sourceImage = project.querySelector("img");
   const videoId = project.dataset.videoId;
-  const details = projectDetails[getProjectKey(project)] || {};
+  const key = getProjectKey(project);
+  const details = projectDetails[key] || {};
+
+  activeProjectKey = key;
+  copyProjectLink.innerHTML = 'COPY PROJECT LINK <span aria-hidden="true">↗</span>';
+  if (syncUrl) {
+    projectReturnUrl = `${window.location.pathname}${window.location.hash}`;
+    window.history.pushState({ work: key }, "", projectUrl(key));
+  }
 
   resetDialogMedia();
 
@@ -210,16 +228,50 @@ document.querySelectorAll("[data-open-project]").forEach((control) => {
   });
 });
 
-const closeDialog = () => {
+const restoreProjectUrl = () => {
+  if (!new URL(window.location.href).searchParams.has("work")) return;
+  window.history.replaceState({}, "", projectReturnUrl || window.location.pathname);
+};
+
+const closeDialog = ({ restoreUrl = true } = {}) => {
   resetDialogMedia();
+  if (restoreUrl) restoreProjectUrl();
   if (dialog.open) dialog.close();
 };
 
-dialog.querySelector(".dialog-close").addEventListener("click", closeDialog);
+dialog.querySelector(".dialog-close").addEventListener("click", () => closeDialog());
 dialog.addEventListener("click", (event) => {
   if (event.target === dialog) closeDialog();
 });
-dialog.addEventListener("close", resetDialogMedia);
+dialog.addEventListener("close", () => {
+  resetDialogMedia();
+  restoreProjectUrl();
+});
+
+copyProjectLink.addEventListener("click", async () => {
+  if (!activeProjectKey) return;
+  const url = projectUrl(activeProjectKey).toString();
+  try {
+    await navigator.clipboard.writeText(url);
+    copyProjectLink.textContent = "LINK COPIED";
+  } catch {
+    window.prompt("Copy project link", url);
+  }
+});
+
+window.addEventListener("popstate", () => {
+  const key = new URL(window.location.href).searchParams.get("work");
+  if (!key && dialog.open) closeDialog({ restoreUrl: false });
+});
+
+const initialProjectKey = new URL(window.location.href).searchParams.get("work");
+if (initialProjectKey) {
+  const initialProject = projects.find((project) => getProjectKey(project) === initialProjectKey);
+  if (initialProject) {
+    projectReturnUrl = window.location.pathname;
+    openProject(initialProject, { syncUrl: false });
+  }
+}
 
 document.querySelectorAll('img[src*="i.ytimg.com"]').forEach((image) => {
   image.addEventListener("error", () => {
