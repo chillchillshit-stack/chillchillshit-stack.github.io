@@ -280,6 +280,7 @@ document.querySelectorAll('img[src*="i.ytimg.com"]').forEach((image) => {
 });
 
 const sectionLinks = [...document.querySelectorAll('.site-header nav a[href^="#"]')];
+const headerNav = document.querySelector(".site-header nav");
 const observedSections = sectionLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
@@ -288,9 +289,16 @@ const sectionObserver = new IntersectionObserver(
   (entries) => {
     const visible = entries.find((entry) => entry.isIntersecting);
     if (!visible) return;
+    const activeLink = sectionLinks.find((link) => link.getAttribute("href") === `#${visible.target.id}`);
     sectionLinks.forEach((link) => {
-      link.classList.toggle("is-active", link.getAttribute("href") === `#${visible.target.id}`);
+      link.classList.toggle("is-active", link === activeLink);
     });
+    if (activeLink && headerNav.scrollWidth > headerNav.clientWidth) {
+      headerNav.scrollTo({
+        left: activeLink.offsetLeft - (headerNav.clientWidth - activeLink.offsetWidth) / 2,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      });
+    }
   },
   { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
 );
