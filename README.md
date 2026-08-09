@@ -12,4 +12,4 @@ The site is structured as a selective public entry rather than a complete archiv
 4. a discontinuous archive of pauses, restarts and versions;
 5. explicitly unfinished current experiments.
 
-Project videos use privacy-enhanced YouTube embeds. Local assets are limited to web-sized stills, the fixed background loop and the archived CV PDF.
+Project videos use privacy-enhanced YouTube embeds. Local assets are limited to web-sized stills, the fixed background loop and the current public artistic CV PDF.
