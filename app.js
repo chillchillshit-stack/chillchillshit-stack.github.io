@@ -5,11 +5,17 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 let backgroundStarted = false;
 
 const startBackgroundVideo = () => {
-  if (backgroundStarted || reducedMotion.matches) return;
+  if (backgroundStarted || reducedMotion.matches || dialog.open) return;
   backgroundStarted = true;
   backgroundSource.src = backgroundSource.dataset.src;
   backgroundVideo.load();
   backgroundVideo.play().catch(() => {});
+};
+
+const resumeBackgroundVideo = () => {
+  if (reducedMotion.matches || dialog.open) return;
+  if (!backgroundStarted) startBackgroundVideo();
+  else backgroundVideo.play().catch(() => {});
 };
 
 window.addEventListener("load", () => {
@@ -22,7 +28,7 @@ window.addEventListener("load", () => {
 
 reducedMotion.addEventListener("change", (event) => {
   if (event.matches) backgroundVideo.pause();
-  else startBackgroundVideo();
+  else resumeBackgroundVideo();
 });
 
 const dialogImage = document.querySelector("#dialogImage");
@@ -239,6 +245,7 @@ const openProject = (project, { syncUrl = true } = {}) => {
     hasEvidence ||= Boolean(value);
   });
   dialogEvidence.hidden = !hasEvidence;
+  backgroundVideo.pause();
   dialog.showModal();
 };
 
@@ -272,6 +279,7 @@ dialog.addEventListener("click", (event) => {
 dialog.addEventListener("close", () => {
   resetDialogMedia();
   restoreProjectUrl();
+  resumeBackgroundVideo();
 });
 
 copyProjectLink.addEventListener("click", async () => {
