@@ -81,6 +81,15 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .spine-intro { display: grid; grid-template-columns: minmax(180px, .42fr) minmax(0, 1.58fr); align-items: start; gap: clamp(28px, 5vw, 90px); }
 .spine-intro h2 { margin: 8px 0 0; color: var(--blue); font-size: 11px; line-height: 1; letter-spacing: .13em; }
 .spine-intro p { max-width: 29em; margin: 0; font-family: var(--display); font-size: clamp(34px, 4.45vw, 70px); font-weight: 400; line-height: .98; letter-spacing: -.038em; }
+.reading-key { display: grid; grid-template-columns: minmax(180px, .42fr) minmax(0, 1.58fr); gap: clamp(28px, 5vw, 90px); margin-top: clamp(46px, 6vw, 88px); padding-top: 18px; border-top: 1px solid var(--rule); }
+.reading-key-label { margin: 2px 0 0; color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .13em; }
+.reading-key ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; }
+.reading-key li { min-width: 0; padding-right: clamp(16px, 2.5vw, 36px); }
+.reading-key li + li { padding-left: clamp(16px, 2.5vw, 36px); border-left: 1px solid var(--rule); }
+.reading-key span, .reading-key strong { display: block; }
+.reading-key span { margin-bottom: 26px; color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .11em; }
+.reading-key strong { font-size: clamp(16px, 1.45vw, 22px); font-weight: 500; letter-spacing: .04em; }
+.reading-key li p { max-width: 20em; margin: 11px 0 0; color: #969692; font-size: 11px; line-height: 1.45; }
 .spine-steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: clamp(55px, 7vw, 105px) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .spine-steps li { min-width: 0; min-height: 118px; padding: 20px 22px 22px 0; border-right: 1px solid var(--rule); }
 .spine-steps li + li { padding-left: 22px; }
@@ -97,11 +106,29 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .chapter-header h3 { margin: 0; font-size: clamp(28px, 3.2vw, 52px); font-weight: 400; letter-spacing: .035em; }
 .chapter-header h3::before { content: "—"; margin-right: 22px; color: var(--white); }
 .chapter-intro { max-width: 58em; margin: 20px 0 0 48px; color: #b7b7b3; font-size: clamp(13px, 1.1vw, 16px); line-height: 1.55; letter-spacing: .01em; }
+.chapter-route { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 68em; margin: 28px 0 0 48px; padding-top: 12px; border-top: 1px solid var(--rule); color: #8f8f8b; font-size: 9px; line-height: 1.4; letter-spacing: .07em; }
+.chapter-route span { min-width: 0; padding-right: 18px; color: #8f8f8b; font-size: inherit; }
+.chapter-route span + span { padding-left: 18px; border-left: 1px solid var(--rule); }
+.chapter-route b { display: block; margin-bottom: 7px; color: var(--blue); font-weight: 800; letter-spacing: .12em; }
 
 .chapter-feature { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(280px, .4fr); align-items: center; gap: clamp(34px, 6vw, 100px); }
 .feature-project { min-height: clamp(390px, 45vw, 700px); }
 .feature-meta h4 { margin: 0; font-size: clamp(28px, 3vw, 50px); font-weight: 400; line-height: .95; letter-spacing: .02em; }
 .feature-meta p { margin: 20px 0 0; color: #bbb; font-size: 12px; }
+.control-origin { margin-top: clamp(46px, 6vw, 92px); padding: clamp(28px, 3.5vw, 52px) 0 1px; border-top: 1px solid var(--rule); background: #080808; }
+.control-origin > header { display: grid; grid-template-columns: minmax(190px, .42fr) minmax(280px, .75fr) minmax(300px, .83fr); align-items: start; gap: clamp(24px, 4vw, 64px); padding: 0 clamp(24px, 3vw, 44px) clamp(36px, 5vw, 74px); }
+.control-origin > header .chapter-kicker { margin: 6px 0 0; }
+.control-origin > header h4 { margin: 0; font-family: var(--display); font-size: clamp(34px, 4vw, 64px); font-weight: 400; line-height: .9; letter-spacing: -.035em; }
+.control-origin > header > p:last-child { max-width: 38em; margin: 3px 0 0; color: #b0b0ac; font-size: clamp(13px, 1.05vw, 16px); line-height: 1.58; }
+.control-origin > header em { color: var(--white); font-style: normal; }
+.origin-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 1px 0 0; list-style: none; background: var(--rule); }
+.origin-steps li { min-width: 0; background: var(--black); }
+.origin-steps img { width: 100%; aspect-ratio: 16 / 9; display: block; object-fit: cover; }
+.origin-steps li > div { min-height: 174px; padding: clamp(20px, 2.4vw, 34px); border-top: 1px solid var(--rule); }
+.origin-steps span, .origin-steps strong { display: block; }
+.origin-steps span { margin-bottom: 28px; color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
+.origin-steps strong { font-size: clamp(16px, 1.4vw, 21px); font-weight: 500; letter-spacing: .035em; }
+.origin-steps p { max-width: 30em; margin: 12px 0 0; color: #969692; font-size: 11px; line-height: 1.5; }
 .compact-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; width: min(70%, 1000px); margin-top: 22px; background: var(--rule); }
 .compact-project { background: var(--black); }
 .compact-project > img { height: clamp(210px, 24vw, 360px); }
@@ -322,6 +349,7 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .hero-copy h1 { width: auto; font-size: clamp(56px, 12vw, 94px); white-space: normal; }
   .spine-intro { grid-template-columns: 1fr; }
   .spine-intro p { max-width: 24em; }
+  .reading-key { grid-template-columns: 1fr; }
   .spine-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .spine-steps li:nth-child(3) { border-right: 0; }
   .spine-steps li:nth-child(n + 4) { border-top: 1px solid var(--rule); }
@@ -347,6 +375,8 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .index-heading { grid-template-columns: 1fr; }
   .about-copy, .profile-facts, .selected-contexts { grid-column: 1; }
   .feature-meta { padding: 20px 0 8px; }
+  .control-origin > header { grid-template-columns: minmax(190px, .4fr) minmax(0, 1fr); }
+  .control-origin > header > p:last-child { grid-column: 2; }
   .compact-projects { width: 100%; }
   .platform-side { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
   .version-pair { grid-template-columns: minmax(0, 1fr) 34px minmax(190px, .45fr); }
@@ -365,6 +395,11 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .media-frame { height: 68vw; }
   .practice-spine { padding-right: var(--gutter); padding-left: var(--gutter); }
   .spine-intro p { font-size: clamp(31px, 9.5vw, 47px); }
+  .reading-key { gap: 20px; }
+  .reading-key ol { grid-template-columns: 1fr; }
+  .reading-key li { padding: 17px 0 20px; border-top: 1px solid var(--rule); }
+  .reading-key li + li { padding-left: 0; border-left: 0; }
+  .reading-key span { margin-bottom: 10px; }
   .spine-steps { grid-template-columns: 1fr; }
   .spine-steps li { min-height: 0; padding: 16px 0 18px; border-right: 0; }
   .spine-steps li + li { padding-left: 0; border-top: 1px solid var(--rule); }
@@ -376,6 +411,9 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .chapter-header h3 { font-size: 24px; line-height: 1.05; }
   .chapter-header h3::before { margin-right: 9px; }
   .chapter-intro { margin: 14px 0 0; font-size: 13px; }
+  .chapter-route { grid-template-columns: 1fr; margin: 24px 0 0; }
+  .chapter-route span { padding: 11px 0; border-top: 1px solid var(--rule); }
+  .chapter-route span + span { padding-left: 0; border-left: 0; }
   .chapter-feature, .platform-grid, .version-layout { margin-right: 0; margin-left: 0; }
   .urban-grid { grid-template-columns: 1fr; grid-template-rows: none; }
   .urban-lead { grid-row: auto; min-height: 108vw; }
@@ -394,6 +432,10 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .secondary-version-row { grid-template-columns: 1fr; margin-right: var(--gutter); margin-left: var(--gutter); }
   .secondary-version-project > img { height: 68vw; }
   .feature-meta { padding-right: var(--gutter); padding-left: var(--gutter); }
+  .control-origin > header { grid-template-columns: 1fr; padding-right: var(--gutter); padding-left: var(--gutter); }
+  .control-origin > header > p:last-child { grid-column: 1; }
+  .origin-steps { grid-template-columns: 1fr; }
+  .origin-steps li > div { min-height: 0; }
   .compact-projects, .platform-side { grid-template-columns: 1fr; }
   .live-depth-grid { grid-template-columns: 1fr; }
   .current-depth header { grid-template-columns: 1fr; }

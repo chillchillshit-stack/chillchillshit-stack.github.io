@@ -12,6 +12,8 @@ The site is structured as a selective public entry rather than a complete archiv
 4. a discontinuous archive of pauses, restarts, humour, fragments and versions;
 5. explicitly unfinished current experiments.
 
+The public reading grammar is `Source / Reality → Transformation → Work`. `CHILLCHILL CONTROL THE WORLD` is the first full example: its project page connects a field of testing-booth references, the artist's role-reversal proposition and the resulting game-engine / live system without presenting the source images as decorative research.
+
 `MOBIKE-SISPHUS` remains outside the public selection until its final English title and work year are confirmed. It is not silently normalised from a source filename or export date.
 
 Project videos use privacy-enhanced YouTube embeds. Local assets are limited to web-sized stills, the fixed background loop and the current public artistic CV PDF.

@@ -103,9 +103,14 @@ const projectDetails = {
     format: "Audiovisual live performance / game-engine installation",
     duration: "Full version: approximately 40 minutes",
     method: "Game-engine environment, multiple screens and Leap Motion",
-    description: "Pandemic infrastructure returns as a controllable virtual world: a nucleic-acid booth, gloved hand and fragments of lockdown memory become an unstable interface.",
-    atTime: "The work began from lived pandemic infrastructure, delivery-worker fragments and urban memories.",
-    lookingBack: "Control is both subject and method here—the hand operates the world while the system also reorganises the performer and audience.",
+    description: "After mass testing had ended, empty testing booths still remained on city streets. CHILLCHILL photographed one and rebuilt it in a game engine, imagining a reversal: instead of being tested, he would sit inside the booth, extend a gloved hand through its window and test others—or use that hand to control an entire world.",
+    atTime: "The work began with an empty nucleic-acid testing booth encountered and photographed after mass testing had ended.",
+    lookingBack: "A concrete urban remainder becomes a game-engine world and real-time control interface. The role reversal links the work's subject to its operating method.",
+    gallery: [
+      "./assets/control-origin-reality-1400.jpg",
+      "./assets/control-origin-reversal-1400.jpg",
+      "./assets/control-origin-system-1400.jpg",
+    ],
   },
   chat: {
     type: "4K VIDEO / AI CO-WRITING",
