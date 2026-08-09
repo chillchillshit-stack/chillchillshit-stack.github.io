@@ -307,12 +307,6 @@ if (initialProjectKey) {
   }
 }
 
-document.querySelectorAll('img[src*="i.ytimg.com"]').forEach((image) => {
-  image.addEventListener("error", () => {
-    if (image.src.endsWith("/hqdefault.jpg")) image.src = image.src.replace("/hqdefault.jpg", "/0.jpg");
-  }, { once: true });
-});
-
 const sectionLinks = [...document.querySelectorAll('.site-header nav a[href^="#"]')];
 const headerNav = document.querySelector(".site-header nav");
 const observedSections = sectionLinks
