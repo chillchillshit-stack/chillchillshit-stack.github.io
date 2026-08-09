@@ -1,4 +1,30 @@
 const dialog = document.querySelector("#projectDialog");
+const backgroundVideo = document.querySelector(".legacy-video-background video");
+const backgroundSource = backgroundVideo.querySelector("source");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let backgroundStarted = false;
+
+const startBackgroundVideo = () => {
+  if (backgroundStarted || reducedMotion.matches) return;
+  backgroundStarted = true;
+  backgroundSource.src = backgroundSource.dataset.src;
+  backgroundVideo.load();
+  backgroundVideo.play().catch(() => {});
+};
+
+window.addEventListener("load", () => {
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(startBackgroundVideo, { timeout: 1000 });
+  } else {
+    window.setTimeout(startBackgroundVideo, 400);
+  }
+}, { once: true });
+
+reducedMotion.addEventListener("change", (event) => {
+  if (event.matches) backgroundVideo.pause();
+  else startBackgroundVideo();
+});
+
 const dialogImage = document.querySelector("#dialogImage");
 const dialogVideo = document.querySelector("#dialogVideo");
 const dialogType = document.querySelector("#dialogType");

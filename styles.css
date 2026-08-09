@@ -3,7 +3,7 @@
   --white: #f5f5f1;
   --muted: #9a9a96;
   --rule: #2c2c2a;
-  --blue: #2464ff;
+  --blue: #3472ff;
   --header-h: 64px;
   --gutter: clamp(22px, 3.2vw, 52px);
   --ui: "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -151,7 +151,7 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .trajectory-phase > header { display: grid; grid-template-columns: 34px 1fr; align-content: start; column-gap: 12px; }
 .trajectory-phase > header span { color: var(--blue); font-family: var(--display); font-size: 28px; line-height: 1; }
 .trajectory-phase > header h3 { margin: 0; font-size: clamp(25px, 2.8vw, 46px); font-weight: 500; line-height: .9; letter-spacing: -.04em; }
-.trajectory-phase > header small { grid-column: 2; margin-top: 10px; color: #777; font-size: 10px; letter-spacing: .12em; }
+.trajectory-phase > header small { grid-column: 2; margin-top: 10px; color: #888; font-size: 10px; letter-spacing: .12em; }
 .trajectory-media { aspect-ratio: 16 / 10; background: #0a0a0a; }
 .trajectory-media img, .trajectory-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .trajectory-chain { display: grid; grid-template-columns: 1fr 28px 1fr; align-items: center; gap: 8px; }
@@ -197,7 +197,7 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .work-index button:hover, .work-index button:focus-visible { color: var(--blue); background: #0a0a0a; }
 .work-index button span { color: var(--blue); font-size: 15px; }
 .work-index button strong { min-width: 0; font-size: 14px; font-weight: 500; letter-spacing: .05em; }
-.work-index button strong em { display: block; margin-top: 6px; color: #777; font-size: 9px; font-style: normal; font-weight: 500; letter-spacing: .08em; }
+.work-index button strong em { display: block; margin-top: 6px; color: #888; font-size: 9px; font-style: normal; font-weight: 500; letter-spacing: .08em; }
 .work-index button time { color: #aaa; font-size: 11px; letter-spacing: .06em; }
 
 .about-section { display: grid; grid-template-columns: minmax(280px, .82fr) minmax(320px, 1.18fr); gap: clamp(42px, 7vw, 110px); padding: clamp(64px, 8vw, 122px) var(--gutter); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
@@ -217,10 +217,10 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .selected-contexts h3 { margin: 24px 0 16px; color: var(--blue); font-size: 10px; letter-spacing: .12em; }
 .selected-contexts ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
 .selected-contexts li { display: grid; grid-template-columns: 70px 1fr; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--rule); color: #b4b4b0; font-size: 12px; line-height: 1.4; }
-.selected-contexts time { color: #777; }
+.selected-contexts time { color: #888; }
 .selected-contexts em { color: var(--white); font-style: normal; }
 .selected-contexts a:hover { color: var(--blue); }
-.archive-cv-link { display: inline-block; margin-top: 22px; padding-bottom: 6px; border-bottom: 1px solid #555; color: #777; font-size: 9px; letter-spacing: .1em; }
+.archive-cv-link { display: inline-block; margin-top: 22px; padding-bottom: 6px; border-bottom: 1px solid #555; color: #888; font-size: 9px; letter-spacing: .1em; }
 .archive-cv-link:hover { color: var(--white); border-color: var(--white); }
 
 .site-footer { min-height: 110px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 34px; padding: 28px var(--gutter); border-top: 1px solid var(--rule); font-size: 11px; letter-spacing: .08em; }
