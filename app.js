@@ -37,6 +37,7 @@ reducedMotion.addEventListener("change", (event) => {
 
 const dialogImage = document.querySelector("#dialogImage");
 const dialogVideo = document.querySelector("#dialogVideo");
+const dialogGallery = document.querySelector("#dialogGallery");
 const dialogType = document.querySelector("#dialogType");
 const dialogTitle = document.querySelector("#dialogTitle");
 const dialogYear = document.querySelector("#dialogYear");
@@ -48,6 +49,8 @@ const factFields = [
   ["format", "#dialogFormatRow", "#dialogFormat"],
   ["duration", "#dialogDurationRow", "#dialogDuration"],
   ["method", "#dialogMethodRow", "#dialogMethod"],
+  ["context", "#dialogContextRow", "#dialogContext"],
+  ["collaboration", "#dialogCollaborationRow", "#dialogCollaboration"],
 ];
 const evidenceFields = [
   ["atTime", "#dialogAtTimeRow", "#dialogAtTime"],
@@ -65,10 +68,17 @@ const projectDetails = {
     format: "Audiovisual performance / live body with real-time visual environment",
     duration: "Documentation: 1'34\"",
     method: "Real-time visual environment, moving image, sound and performance collaboration",
+    context: "Arsenic, Lausanne, 2026",
+    collaboration: "Krassen Krastev",
     description: "A live body becomes an interface inside a responsive cyber-cosmos, altering and being read by the visual system around it.",
     atTime: "Developed as a current performance environment involving a stage body and real-time response.",
     lookingBack: "It brings earlier image-mixing and later live-system experiments into direct relation with a performer.",
     stillOpen: "How can body, image, sound and software remain active together without one permanently governing the others?",
+    gallery: [
+      "./assets/body-sequencer-12s-960.jpg",
+      "./assets/body-sequencer-28s-960.jpg",
+      "./assets/body-sequencer-52s-960.jpg",
+    ],
   },
   "human-sequencer": {
     type: "CURRENT EXPERIMENT / RESEARCH",
@@ -83,6 +93,7 @@ const projectDetails = {
     format: "Real-time audiovisual performance / multiple screens",
     duration: "40'00\"",
     method: "TouchDesigner, ComfyUI, AI imagery and sound synthesis",
+    context: "SYSTEM, Shanghai, 2024",
     description: "Sound activates and reorganises AI-generated images across a real-time performance system, placing attention, emotion and automation in tension.",
     atTime: "Built around algorithmic emotion, digital pressure and the question of control between sound and image.",
     lookingBack: "The work makes the relation between media explicit: images are no longer only edited but continually awakened by another live layer.",
@@ -132,6 +143,11 @@ const projectDetails = {
     atTime: "The live system combined a short finished work, other pre-recorded clips and a majority of real-time imagery.",
     lookingBack: "A fixed work had become one module among other sources; the preserved run makes that change of function legible.",
     stillOpen: "Does retaining the full duration preserve the system's relations, or allow another layer—music, software or endurance—to dominate?",
+    gallery: [
+      "./assets/brain-in-a-vat-01-960.jpg",
+      "./assets/brain-in-a-vat-02-960.jpg",
+      "./assets/brain-in-a-vat-03-960.jpg",
+    ],
   },
   "shaman-garden": {
     type: "SHORT VIDEO / EXPANDED LIVE VERSION",
@@ -184,6 +200,7 @@ const projectDetails = {
     description: "A small frustration around Shanghai electric-bike mobility regulation becomes an absurd visual complaint about bodies, vehicles and everyday rules.",
     atTime: "The trigger was the artist's lived experience as an electric-bike rider and frustration with mobility restrictions.",
     lookingBack: "The work keeps humour and a minor urban incident visible as serious parts of the method.",
+    gallery: ["./assets/inflatable-sequence-1200.jpg"],
   },
 };
 
@@ -194,6 +211,22 @@ const resetDialogMedia = () => {
   dialogVideo.style.display = "none";
   dialogImage.removeAttribute("src");
   dialogImage.style.display = "none";
+  dialogGallery.replaceChildren();
+  dialogGallery.hidden = true;
+};
+
+const renderDialogGallery = (details, title) => {
+  const gallery = details.gallery || [];
+  if (!gallery.length) return;
+  gallery.forEach((src, index) => {
+    const image = document.createElement("img");
+    image.src = src;
+    image.alt = `${title} additional still ${index + 1}`;
+    image.loading = "lazy";
+    image.decoding = "async";
+    dialogGallery.append(image);
+  });
+  dialogGallery.hidden = false;
 };
 
 const projectUrl = (key) => {
@@ -226,6 +259,7 @@ const openProject = (project, { syncUrl = true } = {}) => {
     dialogImage.src = sourceImage.currentSrc || sourceImage.src;
     dialogImage.alt = sourceImage.alt;
   }
+  renderDialogGallery(details, project.dataset.title);
 
   dialogType.textContent = details.type || project.dataset.type || "ART";
   dialogTitle.textContent = project.dataset.title;
