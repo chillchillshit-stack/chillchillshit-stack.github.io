@@ -51,6 +51,7 @@ const evidenceFields = [
   ["stillOpen", "#dialogStillOpenRow", "#dialogStillOpen"],
 ];
 const projects = [...document.querySelectorAll(".project")];
+const siteTitle = document.title;
 let projectReturnUrl = `${window.location.pathname}${window.location.hash}`;
 let activeProjectKey = "";
 
@@ -224,6 +225,7 @@ const openProject = (project, { syncUrl = true } = {}) => {
 
   dialogType.textContent = details.type || project.dataset.type || "ART";
   dialogTitle.textContent = project.dataset.title;
+  document.title = `${project.dataset.title} — CHILLCHILL`;
   dialogTitle.classList.toggle("is-long", project.dataset.title.length > 28);
   dialogYear.textContent = project.dataset.year || "";
   dialogDescription.textContent = details.description || project.dataset.description || "";
@@ -268,6 +270,7 @@ const restoreProjectUrl = () => {
 
 const closeDialog = ({ restoreUrl = true } = {}) => {
   resetDialogMedia();
+  document.title = siteTitle;
   if (restoreUrl) restoreProjectUrl();
   if (dialog.open) dialog.close();
 };
@@ -278,6 +281,7 @@ dialog.addEventListener("click", (event) => {
 });
 dialog.addEventListener("close", () => {
   resetDialogMedia();
+  document.title = siteTitle;
   restoreProjectUrl();
   resumeBackgroundVideo();
 });
