@@ -73,6 +73,7 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .project-line { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 20px; padding: 14px 4px 13px; border-bottom: 1px solid var(--rule); background: var(--black); }
 .project-line strong { min-width: 0; font-size: clamp(13px, 1.45vw, 22px); line-height: 1.05; letter-spacing: -.015em; }
 .project-line small { color: #c2c2be; font-size: 11px; letter-spacing: .06em; }
+.status-label { position: absolute; top: 12px; left: 12px; z-index: 2; padding: 7px 9px 6px; background: rgba(5, 5, 5, .82); color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .12em; line-height: 1; backdrop-filter: blur(6px); }
 
 .practice-spine { padding: clamp(58px, 7vw, 105px) var(--gutter); border-bottom: 1px solid var(--rule); }
 .spine-intro { display: grid; grid-template-columns: minmax(180px, .42fr) minmax(0, 1.58fr); align-items: start; gap: clamp(28px, 5vw, 90px); }
@@ -112,7 +113,7 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .side-project { background: var(--black); }
 .side-project > img { height: calc(100% - 50px); min-height: 240px; }
 
-.version-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(320px, .55fr); gap: clamp(28px, 4vw, 68px); }
+.version-layout { display: grid; grid-template-columns: minmax(320px, .55fr) minmax(0, 1.45fr); gap: clamp(28px, 4vw, 68px); }
 .version-pair { display: grid; grid-template-columns: minmax(0, 1fr) 40px minmax(220px, .42fr); align-items: center; }
 .version-main > img { height: clamp(460px, 48vw, 760px); }
 .version-related > img { height: clamp(210px, 22vw, 330px); }

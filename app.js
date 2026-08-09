@@ -7,8 +7,10 @@ let backgroundStarted = false;
 const startBackgroundVideo = () => {
   if (backgroundStarted || reducedMotion.matches || dialog.open) return;
   backgroundStarted = true;
-  backgroundSource.src = backgroundSource.dataset.src;
-  backgroundVideo.load();
+  if (backgroundSource.dataset.src) {
+    backgroundSource.src = backgroundSource.dataset.src;
+    backgroundVideo.load();
+  }
   backgroundVideo.play().catch(() => {});
 };
 
@@ -19,11 +21,13 @@ const resumeBackgroundVideo = () => {
 };
 
 window.addEventListener("load", () => {
-  if ("requestIdleCallback" in window) {
-    window.requestIdleCallback(startBackgroundVideo, { timeout: 1000 });
-  } else {
-    window.setTimeout(startBackgroundVideo, 400);
-  }
+  window.setTimeout(() => {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(startBackgroundVideo, { timeout: 800 });
+    } else {
+      startBackgroundVideo();
+    }
+  }, 350);
 }, { once: true });
 
 reducedMotion.addEventListener("change", (event) => {
@@ -68,10 +72,10 @@ const projectDetails = {
   },
   "human-sequencer": {
     type: "CURRENT EXPERIMENT / RESEARCH",
-    format: "Ongoing research material",
-    method: "Collective movement, image systems and the body considered as a sequencer",
-    description: "A developing research line rather than a settled artwork. Its format and public form are still being tested.",
-    atTime: "The current material asks how collective movement might organise image and sound.",
+    format: "Ongoing live audiovisual performance / moving-image system",
+    method: "Game-engine crowd environment, AI-generated figures and live visual composition",
+    description: "Randomly moving crowds and AI-generated figures become material for rhythm, image and generative composition. This remains a developing research line rather than a settled artwork.",
+    atTime: "The current material asks how movement, waiting and repetition might organise image and sound.",
     stillOpen: "Can human movement, image, sound and a running system remain active without one layer becoming the permanent master?",
   },
   awakened: {
