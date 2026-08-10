@@ -100,6 +100,22 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 
 .works-section { padding: clamp(58px, 7.5vw, 118px) var(--gutter) 0; }
 .section-title { margin: 0; padding-bottom: clamp(24px, 3vw, 46px); border-bottom: 1px solid var(--rule); font-family: var(--display); font-size: clamp(56px, 8vw, 128px); font-weight: 400; line-height: .8; letter-spacing: -.055em; }
+.works-landing { min-height: calc(100svh - var(--header-h)); padding: clamp(46px, 6vw, 92px) var(--gutter) clamp(62px, 8vw, 126px); }
+.works-page-header { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, .55fr); align-items: end; gap: clamp(42px, 7vw, 120px); padding-bottom: clamp(38px, 5vw, 74px); }
+.works-page-kicker { margin: 0 0 22px; color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .13em; }
+.works-page-header h1 { margin: 0; font-family: var(--display); font-size: clamp(84px, 13vw, 210px); font-weight: 400; line-height: .72; letter-spacing: -.065em; }
+.works-page-guide { align-self: end; padding-top: 18px; border-top: 1px solid var(--rule); }
+.works-page-guide p { max-width: 32em; margin: 0; color: #b7b7b3; font-size: clamp(12px, 1vw, 15px); line-height: 1.5; }
+.works-page-guide a { display: inline-block; margin-top: 22px; padding-bottom: 6px; border-bottom: 1px solid var(--blue); color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
+.works-page-guide a:hover { color: var(--white); border-color: var(--white); }
+.works-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; padding: 1px; background: var(--rule); }
+.works-card { min-width: 0; display: grid; grid-template-rows: auto 1fr; background: var(--black); }
+.works-card-media { aspect-ratio: 16 / 10; display: block; overflow: hidden; background: #000; }
+.works-card-media--contain img { object-fit: contain; }
+.works-card .project-line { min-height: 74px; padding: 14px 15px 15px; border-bottom: 0; }
+.works-card .project-line strong { font-size: clamp(12px, 1.05vw, 17px); line-height: 1.15; }
+.works-card .project-line small { font-size: 9px; }
+.works-verification-note { max-width: 56em; margin: 28px 0 0; color: #777773; font-size: 9px; line-height: 1.5; letter-spacing: .07em; }
 .chapter { padding: clamp(38px, 5vw, 72px) 0 clamp(58px, 7vw, 112px); border-bottom: 1px solid var(--rule); }
 .chapter-header { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: 20px; margin-bottom: clamp(30px, 4vw, 54px); }
 .chapter-header span { color: var(--blue); font-size: clamp(30px, 3vw, 48px); font-weight: 300; }
@@ -336,6 +352,14 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .copy-project-link:hover, .copy-project-link:focus-visible { color: var(--white); border-color: var(--white); }
 .dialog-close { position: fixed; z-index: 2; top: 16px; right: 16px; width: 42px; height: 42px; border: 1px solid var(--white); color: var(--white); background: var(--black); cursor: pointer; font-size: 28px; line-height: 1; }
 
+@media (min-width: 1600px) {
+  .works-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+@media (max-width: 1200px) {
+  .works-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 @media (max-width: 900px) {
   :root { --header-h: 104px; }
   .site-header { align-items: flex-start; flex-wrap: wrap; padding-block: 14px; }
@@ -347,6 +371,9 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .practice-hero { grid-template-columns: 1fr; }
   .hero-copy { padding: 42px 0 34px; }
   .hero-copy h1 { width: auto; font-size: clamp(56px, 12vw, 94px); white-space: normal; }
+  .works-page-header { grid-template-columns: 1fr; align-items: start; }
+  .works-page-guide { max-width: 38em; }
+  .works-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .spine-intro { grid-template-columns: 1fr; }
   .spine-intro p { max-width: 24em; }
   .reading-key { grid-template-columns: 1fr; }
@@ -391,6 +418,12 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .hero-copy { min-width: 0; max-width: none; padding: 82px var(--gutter) 110px; }
   .hero-copy h1 { max-width: 100%; font-size: clamp(44px, 13.5vw, 62px); letter-spacing: -.065em; }
   .hero-copy p { max-width: 24em; }
+  .works-landing { padding-right: 0; padding-left: 0; }
+  .works-page-header, .works-verification-note { margin-right: var(--gutter); margin-left: var(--gutter); }
+  .works-page-header h1 { font-size: clamp(72px, 26vw, 116px); }
+  .works-card .project-line { min-height: 66px; grid-template-columns: 1fr; align-content: start; gap: 8px; padding: 11px 10px 12px; }
+  .works-card .project-line strong { font-size: 11px; }
+  .works-card .project-line small { font-size: 8px; }
   .current-rail { grid-template-columns: 1fr; margin-top: 1px; }
   .media-frame { height: 68vw; }
   .practice-spine { padding-right: var(--gutter); padding-left: var(--gutter); }
@@ -491,6 +524,11 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .dialog-media { max-height: 52vh; }
   .dialog-gallery img { height: 84px; }
   .dialog-copy { border-top: 1px solid var(--rule); border-left: 0; }
+}
+
+@media (max-width: 420px) {
+  .works-grid { grid-template-columns: 1fr; }
+  .works-card .project-line { min-height: 0; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; padding: 13px var(--gutter) 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

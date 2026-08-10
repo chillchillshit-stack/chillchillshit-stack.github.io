@@ -4,7 +4,12 @@ The public website for CHILLCHILL, the artistic practice of Chengchao Tan.
 
 Preview: <https://chillchillshit-stack.github.io/>
 
-The site is structured as a selective public entry rather than a complete archive:
+The site now has two complementary public routes rather than using the primary navigation as a set of anchors within one long page:
+
+- `index.html` is the narrative homepage: current practice, selected works and the ten-year retrospective trajectory;
+- `works.html` is a direct visual index: all currently verified public works appear as thumbnail-and-title cards and open the shared video/project dialog.
+
+The narrative homepage remains a selective public entry rather than a complete archive:
 
 1. current practice;
 2. nine selected public works arranged across four distinct movements: urban triggers, image-to-system version change, platform/pandemic conditions and real-time/live bodies;
