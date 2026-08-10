@@ -22,3 +22,5 @@ The public reading grammar is `Source / Reality → Transformation → Work`. `C
 `MOBIKE-SISPHUS` remains outside the public selection until its final English title and work year are confirmed. It is not silently normalised from a source filename or export date.
 
 Project videos use privacy-enhanced YouTube embeds. Local assets are limited to web-sized stills, the fixed background loop and the current public artistic CV PDF.
+
+The direct works index reuses the artist-selected cover images from the original Wix gallery wherever an exact project match exists. Newer projects without a prior Wix cover keep their current verified stills.
