@@ -274,6 +274,8 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .context-label p { max-width: 52em; margin: 0; color: #92928e; font-size: 12px; line-height: 1.5; }
 .context-filmstrip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin-top: 24px; background: var(--rule); }
 .context-filmstrip--formation { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.context-filmstrip--single { grid-template-columns: minmax(280px, 1fr) 2fr; background: transparent; }
+.context-filmstrip--single .context-project { grid-column: 1; border: 1px solid var(--rule); }
 .context-project { display: flex; min-width: 0; flex-direction: column; background: var(--black); }
 .context-note { min-width: 0; margin: 0; background: var(--black); }
 .context-media { height: clamp(170px, 17vw, 280px); display: block; overflow: hidden; }
