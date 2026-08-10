@@ -111,14 +111,26 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .works-page-guide p { max-width: 32em; margin: 0; color: #b7b7b3; font-size: clamp(12px, 1vw, 15px); line-height: 1.5; }
 .works-page-guide a { display: inline-block; margin-top: 22px; padding-bottom: 6px; border-bottom: 1px solid var(--blue); color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
 .works-page-guide a:hover { color: var(--white); border-color: var(--white); }
-.works-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; padding: 1px; background: var(--rule); }
-.works-card { min-width: 0; display: grid; grid-template-rows: auto 1fr; background: var(--black); }
+.works-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; background: var(--black); }
+.works-section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 16px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .13em; }
+.works-section-heading p { margin: 0; }
+.works-section-heading span { color: #888884; font-weight: 500; }
+.works-card { min-width: 0; display: grid; grid-template-rows: auto 1fr; background: var(--black); box-shadow: inset 0 0 0 1px var(--rule); }
 .works-card-media { aspect-ratio: 16 / 10; display: block; overflow: hidden; background: #000; }
 .works-card-media--contain img { object-fit: contain; }
+.works-card[data-slug="cute"] img { object-position: 50% 42%; }
+.works-card[data-slug="brain-in-a-vat"] img { object-position: 50% 48%; }
+.works-card[data-slug="a-brave-new-world"] img { object-position: 50% 55%; }
+.works-card[data-slug="asian-sharing-heaven"] img { object-position: 50% 48%; }
+.works-card[data-slug="subway-gym"] img { object-position: 50% 44%; }
 .works-card .project-line { min-height: 74px; padding: 14px 15px 15px; border-bottom: 0; }
 .works-card .project-line strong { font-size: clamp(12px, 1.05vw, 17px); line-height: 1.15; }
 .works-card .project-line small { font-size: 9px; }
 .works-verification-note { max-width: 56em; margin: 28px 0 0; color: #777773; font-size: 9px; line-height: 1.5; letter-spacing: .07em; }
+.works-secondary { margin-top: clamp(62px, 8vw, 118px); }
+.works-secondary-grid { display: grid; grid-template-columns: minmax(280px, .72fr) minmax(260px, 1.28fr); gap: 1px; background: var(--rule); }
+.works-secondary-grid > p { margin: 0; padding: clamp(24px, 3vw, 46px); background: var(--black); color: #aaa; font-family: var(--display); font-size: clamp(25px, 3vw, 46px); line-height: 1.05; letter-spacing: -.025em; }
+.works-context-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; background: var(--black); }
 .chapter { padding: clamp(38px, 5vw, 72px) 0 clamp(58px, 7vw, 112px); border-bottom: 1px solid var(--rule); }
 .chapter-header { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: 20px; margin-bottom: clamp(30px, 4vw, 54px); }
 .chapter-header span { color: var(--blue); font-size: clamp(30px, 3vw, 48px); font-weight: 300; }
@@ -344,11 +356,11 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .dialog-gallery img { width: 100%; height: clamp(90px, 9vw, 140px); display: block; object-fit: cover; background: #000; }
 .dialog-gallery img:only-child { grid-column: 1 / -1; }
 .dialog-copy { display: flex; flex-direction: column; justify-content: flex-start; overflow-y: auto; padding: clamp(28px, 3.5vw, 48px); border-left: 1px solid var(--rule); }
-.dialog-copy h2 { margin: 14px 0 30px; font-size: clamp(30px, 3.8vw, 62px); font-weight: 500; line-height: .92; letter-spacing: -.045em; overflow-wrap: normal; word-break: normal; }
-.dialog-copy h2.is-long { font-size: clamp(25px, 3.1vw, 48px); line-height: .96; }
+.dialog-copy h2 { margin: 12px 0 24px; font-size: clamp(28px, 3.25vw, 52px); font-weight: 500; line-height: .94; letter-spacing: -.04em; overflow-wrap: normal; word-break: normal; }
+.dialog-copy h2.is-long { font-size: clamp(24px, 2.7vw, 42px); line-height: .98; }
 .dialog-copy p { margin: 0 0 12px; color: #aaa; font-size: 11px; line-height: 1.45; letter-spacing: .065em; }
 .dialog-copy #dialogType { color: var(--blue); }
-.dialog-copy #dialogDescription { max-width: 34em; margin-top: 12px; color: #c4c4c0; font-size: 13px; letter-spacing: .01em; }
+.dialog-copy #dialogDescription { max-width: 34em; margin-top: 12px; color: #d0d0cc; font-size: 14px; line-height: 1.55; letter-spacing: .005em; }
 .dialog-facts, .dialog-evidence { margin: 18px 0 0; }
 .dialog-facts > div, .dialog-evidence > div { padding: 10px 0; border-top: 1px solid var(--rule); }
 .dialog-facts dt, .dialog-evidence dt { margin-bottom: 5px; color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
@@ -380,6 +392,8 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .works-page-header { grid-template-columns: 1fr; align-items: start; }
   .works-page-guide { max-width: 38em; }
   .works-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .works-secondary-grid { grid-template-columns: 1fr; }
+  .works-context-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .spine-intro { grid-template-columns: 1fr; }
   .spine-intro p { max-width: 24em; }
   .reading-key { grid-template-columns: 1fr; }
@@ -430,6 +444,9 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .works-card .project-line { min-height: 66px; grid-template-columns: 1fr; align-content: start; gap: 8px; padding: 11px 10px 12px; }
   .works-card .project-line strong { font-size: 11px; }
   .works-card .project-line small { font-size: 8px; }
+  .works-secondary { margin-right: 0; margin-left: 0; }
+  .works-secondary .works-section-heading { margin-right: var(--gutter); margin-left: var(--gutter); }
+  .works-secondary-grid > p { font-size: 25px; }
   .current-rail { grid-template-columns: 1fr; margin-top: 1px; }
   .media-frame { height: 68vw; }
   .practice-spine { padding-right: var(--gutter); padding-left: var(--gutter); }
@@ -533,8 +550,13 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 }
 
 @media (max-width: 420px) {
-  .works-grid { grid-template-columns: 1fr; }
-  .works-card .project-line { min-height: 0; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; padding: 13px var(--gutter) 14px; }
+  .works-grid, .works-context-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .works-card .project-line { min-height: 64px; grid-template-columns: 1fr; align-content: start; gap: 7px; padding: 10px 9px 11px; }
+  .works-card .project-line strong { font-size: 9px; line-height: 1.15; }
+  .works-card .project-line small { font-size: 7px; }
+  .works-secondary-grid .works-card { max-width: none; }
+  .works-secondary-grid > p { padding: 24px var(--gutter); }
+  .works-context-grid .works-card:last-child { grid-column: 1 / -1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
