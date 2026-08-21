@@ -131,6 +131,16 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .works-secondary-grid { display: grid; grid-template-columns: minmax(280px, .72fr) minmax(260px, 1.28fr); gap: 1px; background: var(--rule); }
 .works-secondary-grid > p { margin: 0; padding: clamp(24px, 3vw, 46px); background: var(--black); color: #aaa; font-family: var(--display); font-size: clamp(25px, 3vw, 46px); line-height: 1.05; letter-spacing: -.025em; }
 .works-context-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; background: var(--black); }
+.works-archive-intro { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr); gap: clamp(28px, 6vw, 100px); margin-bottom: clamp(24px, 3.5vw, 48px); }
+.works-archive-intro p { max-width: 48em; margin: 0; color: #9a9a96; font-size: 11px; line-height: 1.55; letter-spacing: .025em; }
+.works-archive-intro p:last-child { color: #72726e; }
+.works-archive-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); background: var(--black); }
+.archive-card .works-card-media { aspect-ratio: 16 / 9; }
+.archive-card .works-card-media img { opacity: .82; transition: opacity 180ms ease, transform 240ms ease; }
+.archive-card:hover .works-card-media img, .archive-card:focus-visible .works-card-media img { opacity: 1; transform: scale(1.015); }
+.archive-card .project-line { min-height: 62px; padding: 11px 12px 12px; }
+.archive-card .project-line strong { font-size: clamp(9px, .72vw, 12px); }
+.archive-card .project-line small { font-size: 7px; }
 .chapter { padding: clamp(38px, 5vw, 72px) 0 clamp(58px, 7vw, 112px); border-bottom: 1px solid var(--rule); }
 .chapter-header { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: 20px; margin-bottom: clamp(30px, 4vw, 54px); }
 .chapter-header span { color: var(--blue); font-size: clamp(30px, 3vw, 48px); font-weight: 300; }
@@ -365,8 +375,9 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 .dialog-facts > div, .dialog-evidence > div { padding: 10px 0; border-top: 1px solid var(--rule); }
 .dialog-facts dt, .dialog-evidence dt { margin-bottom: 5px; color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
 .dialog-facts dd, .dialog-evidence dd { margin: 0; color: #a9a9a5; font-size: 11px; line-height: 1.45; }
-.copy-project-link { align-self: flex-start; margin-top: 22px; padding: 0 0 7px; border-bottom: 1px solid var(--blue); color: var(--blue); cursor: pointer; font-size: 9px; font-weight: 800; letter-spacing: .12em; }
-.copy-project-link:hover, .copy-project-link:focus-visible { color: var(--white); border-color: var(--white); }
+.dialog-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 22px; }
+.copy-project-link, .watch-video-link { align-self: flex-start; padding: 0 0 7px; border-bottom: 1px solid var(--blue); color: var(--blue); cursor: pointer; font-size: 9px; font-weight: 800; letter-spacing: .12em; }
+.copy-project-link:hover, .copy-project-link:focus-visible, .watch-video-link:hover, .watch-video-link:focus-visible { color: var(--white); border-color: var(--white); }
 .dialog-close { position: fixed; z-index: 2; top: 16px; right: 16px; width: 42px; height: 42px; border: 1px solid var(--white); color: var(--white); background: var(--black); cursor: pointer; font-size: 28px; line-height: 1; }
 
 @media (min-width: 1600px) {
@@ -375,6 +386,7 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
 
 @media (max-width: 1200px) {
   .works-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .works-archive-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 @media (max-width: 900px) {
@@ -394,6 +406,7 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .works-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .works-secondary-grid { grid-template-columns: 1fr; }
   .works-context-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .works-archive-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .spine-intro { grid-template-columns: 1fr; }
   .spine-intro p { max-width: 24em; }
   .reading-key { grid-template-columns: 1fr; }
@@ -447,6 +460,8 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .works-secondary { margin-right: 0; margin-left: 0; }
   .works-secondary .works-section-heading { margin-right: var(--gutter); margin-left: var(--gutter); }
   .works-secondary-grid > p { font-size: 25px; }
+  .works-archive-intro { grid-template-columns: 1fr; margin-right: var(--gutter); margin-left: var(--gutter); }
+  .works-archive-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .current-rail { grid-template-columns: 1fr; margin-top: 1px; }
   .media-frame { height: 68vw; }
   .practice-spine { padding-right: var(--gutter); padding-left: var(--gutter); }
@@ -557,6 +572,7 @@ main > section:not(.practice-hero), .site-footer { background: rgb(5 5 5 / .76);
   .works-secondary-grid .works-card { max-width: none; }
   .works-secondary-grid > p { padding: 24px var(--gutter); }
   .works-context-grid .works-card:last-child { grid-column: 1 / -1; }
+  .archive-card .project-line { min-height: 58px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -45,6 +45,7 @@ const dialogDescription = document.querySelector("#dialogDescription");
 const dialogFacts = document.querySelector("#dialogFacts");
 const dialogEvidence = document.querySelector("#dialogEvidence");
 const copyProjectLink = document.querySelector("#copyProjectLink");
+const watchVideoLink = document.querySelector("#watchVideoLink");
 const factFields = [
   ["format", "#dialogFormatRow", "#dialogFormat"],
   ["duration", "#dialogDurationRow", "#dialogDuration"],
@@ -207,6 +208,66 @@ const projectDetails = {
     lookingBack: "The work keeps humour and a minor urban incident visible as serious parts of the method.",
     gallery: ["./assets/inflatable-sequence-1200.jpg"],
   },
+  "control-shanghai-system": {
+    type: "VERSION / LIVE SYSTEM",
+    format: "Live audiovisual system / project version",
+    description: "A live-system version of CHILLCHILL CONTROL THE WORLD, retained from the former Wix gallery as part of the project's public version history.",
+    lookingBack: "This is presented as a version of the main project rather than a separate selected work.",
+  },
+  "audiovisual-live-alex": {
+    type: "LIVE VERSION / COLLABORATION",
+    format: "Audiovisual live performance",
+    collaboration: "Alex Wang",
+    description: "A live entry from the development chain around A BRAVE NEW WORLD, retained from the former Wix gallery.",
+    lookingBack: "The entry records the point at which a finished moving image began operating inside a live audiovisual context.",
+  },
+  "untitled-wix-entry": {
+    type: "UNTITLED LEGACY ENTRY",
+    format: "Moving image / 39 seconds",
+    description: "This 39-second video was publicly embedded on the former Wix site without a project title. It is retained under that untitled status.",
+    stillOpen: "Title, date and final project status remain to be verified.",
+  },
+  "mobike-sisyphus": {
+    type: "EARLIER MOVING IMAGE",
+    description: "An earlier moving-image work retained under the title used on the former Wix gallery. Its date is omitted until verified.",
+  },
+  dubike: {
+    type: "EARLIER FRAGMENT / WIX ARCHIVE",
+    description: "Preserved from the former public Wix gallery as an earlier moving-image fragment. Its date and final project status are not normalised here.",
+  },
+  "ai-hat": {
+    type: "EARLIER FRAGMENT / WIX ARCHIVE",
+    description: "Preserved from the former public Wix gallery as an earlier moving-image fragment. Its date and final project status are not normalised here.",
+  },
+  "wonderful-day": {
+    type: "EARLIER FRAGMENT / WIX ARCHIVE",
+    description: "Preserved from the former public Wix gallery as an earlier moving-image fragment. Its date and final project status are not normalised here.",
+  },
+  exercise: {
+    type: "WIX ARCHIVE / IMAGE ENTRY",
+    format: "Image entry on the former Wix gallery",
+    description: "An image-based entry retained from the former public gallery. No video, date or additional project information is inferred here.",
+  },
+  runway2: {
+    type: "RUNWAY / EARLIER VERSION",
+    description: "An alternate RUNWAY entry retained from the former Wix gallery as version history rather than a separate selected work.",
+  },
+  "lazhou-lamian": {
+    type: "EARLY C4D EXPERIMENT",
+    method: "C4D moving-image experiment",
+    description: "An early C4D experiment retained under the exact title used on Wix. The date and title wording remain unnormalised until verified.",
+  },
+  "the-garden": {
+    type: "EXPANDED LIVE VERSION",
+    format: "Expanded audiovisual performance",
+    description: "THE GARDEN contains SHAMAN and additional material in a longer audiovisual form. It is shown here as a version in the public history of that work chain.",
+    lookingBack: "The version makes visible how an independent short could be absorbed into a larger live field.",
+  },
+  "the-heart": {
+    type: "WIX ARCHIVE / IMAGE ENTRY",
+    format: "Image entry on the former Wix gallery",
+    description: "An image-based entry retained from the former public gallery. No video, date or additional project information is inferred here.",
+  },
 };
 
 const getProjectKey = (project) => project.dataset.slug.replace(/-(chapter|trajectory|research)$/, "");
@@ -255,6 +316,8 @@ const openProject = (project, { syncUrl = true } = {}) => {
   }
 
   resetDialogMedia();
+  watchVideoLink.hidden = !videoId;
+  if (videoId) watchVideoLink.href = `https://www.youtube.com/watch?v=${videoId}`;
 
   if (videoId) {
     dialogVideo.style.display = "block";
