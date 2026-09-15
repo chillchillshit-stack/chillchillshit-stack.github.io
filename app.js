@@ -60,6 +60,21 @@ const evidenceFields = [
 ];
 const projects = [...document.querySelectorAll(".project")];
 const siteTitle = document.title;
+const selectedKeys = new Set(["body-sequencer", "awakened", "control-the-world", "chat", "runway", "cute", "brain-in-a-vat", "asian-sharing-heaven", "subway-gym"]);
+const archiveKeys = new Set(["a-brave-new-world", "shaman-garden", "inflatable", "occupy-today", "control-shanghai-system", "audiovisual-live-alex", "untitled-wix-entry", "mobike-sisyphus", "dubike", "ai-hat", "wonderful-day", "exercise", "runway2", "lazhou-lamian", "the-garden", "the-heart"]);
+const knownProject = (key) => selectedKeys.has(key) || archiveKeys.has(key) || key === "human-sequencer";
+const routeForProject = (key) => selectedKeys.has(key) ? "./works.html" : archiveKeys.has(key) ? "./archive.html" : "./index.html";
+const notesDisclosure = document.createElement("details");
+notesDisclosure.className = "dialog-notes";
+const notesSummary = document.createElement("summary");
+notesSummary.textContent = "Origin & related questions";
+dialogEvidence.before(notesDisclosure);
+notesDisclosure.append(notesSummary, dialogEvidence);
+const relatedWorks = document.createElement("nav");
+relatedWorks.className = "dialog-related";
+relatedWorks.setAttribute("aria-label", "Related works and versions");
+notesDisclosure.after(relatedWorks);
+let ignoreCloseRestore = false;
 let projectReturnUrl = `${window.location.pathname}${window.location.hash}`;
 let activeProjectKey = "";
 
@@ -71,8 +86,8 @@ const projectDetails = {
     method: "Real-time visual environment, moving image, sound and performance collaboration",
     context: "Arsenic, Lausanne, 2026",
     collaboration: "Krassen Krastev",
-    description: "A live body becomes an interface inside a responsive cyber-cosmos, altering and being read by the visual system around it.",
-    atTime: "Developed as a current performance environment involving a stage body and real-time response.",
+    description: "A performance developed with Krassen Krastev, bringing a live body into a real-time visual environment.",
+    atTime: "Developed with Krassen Krastev as a performance bringing a stage body, sound and a real-time visual environment into the same room.",
     lookingBack: "It brings earlier image-mixing and later live-system experiments into direct relation with a performer.",
     stillOpen: "How can body, image, sound and software remain active together without one permanently governing the others?",
     gallery: [
@@ -95,29 +110,29 @@ const projectDetails = {
     duration: "40'00\"",
     method: "TouchDesigner, ComfyUI, AI imagery and sound synthesis",
     context: "SYSTEM, Shanghai, 2024",
-    description: "Sound activates and reorganises AI-generated images across a real-time performance system, placing attention, emotion and automation in tension.",
+    description: "Sound synthesis, AI-generated imagery and real-time visual processing meet across a performance system.",
     atTime: "Built around algorithmic emotion, digital pressure and the question of control between sound and image.",
-    lookingBack: "The work makes the relation between media explicit: images are no longer only edited but continually awakened by another live layer.",
+    lookingBack: "It brings sound synthesis, AI imagery and live visual processing into the same performance. Their coexistence raises a question about which layer organises the others; it does not by itself establish their independence.",
   },
   "control-the-world": {
-    type: "LIVE / GAME ENGINE / INSTALLATION",
-    format: "Audiovisual live performance / game-engine installation",
+    type: "AUDIOVISUAL PERFORMANCE / INTERACTION STUDY",
+    format: "Realised artist-operated AV performance; informal interaction tests; unrealised gallery proposal",
     duration: "Full version: approximately 40 minutes",
     method: "Game-engine environment, multiple screens and Leap Motion",
-    description: "After mass testing had ended, empty testing booths still remained on city streets. CHILLCHILL photographed one and rebuilt it in a game engine, imagining a reversal: instead of being tested, he would sit inside the booth, extend a gloved hand through its window and test others—or use that hand to control an entire world.",
+    description: "After mass testing had ended, empty testing booths still remained on city streets. CHILLCHILLSHIT photographed one and rebuilt it in a game engine, imagining a reversal: instead of being tested, he would sit inside the booth, extend a gloved hand through its window and test others—or use that hand to control an entire world.",
     atTime: "The work began with an empty nucleic-acid testing booth encountered and photographed after mass testing had ended.",
     lookingBack: "A concrete urban remainder becomes a game-engine world and real-time control interface. The role reversal links the work's subject to its operating method.",
     gallery: [
-      "./assets/control-origin-reality-1400.jpg",
-      "./assets/control-origin-reversal-1400.jpg",
-      "./assets/control-origin-system-1400.jpg",
+      { src: "./assets/control-origin-reality-1400.jpg", alt: "Testing-booth references in the artist's project deck", caption: "Reference material — booths and testing gestures assembled in the project deck." },
+      { src: "./assets/control-origin-reversal-1400.jpg", alt: "Booth and hand reconstructed in a game engine", caption: "Production — rebuilding the booth and imagining a reversal of the testing position." },
+      { src: "./assets/control-origin-system-1400.jpg", alt: "Unrealised gallery-installation proposal", caption: "Unrealised proposal — a visitor-operated gallery installation with physical scenery. This full spatial version has not been realised." },
     ],
   },
   chat: {
     type: "4K VIDEO / AI CO-WRITING",
     format: "Single-channel 4K video",
     duration: "9'21\"",
-    method: "Text co-written by CHILLCHILL and ChatGPT; 4K moving image",
+    method: "Text co-written by CHILLCHILLSHIT and ChatGPT; 4K moving image",
     description: "Food-delivery riders, programmers and synthetic social characters meet inside a narrative co-written with AI.",
     atTime: "AI writing entered as a working tool for describing platform labour and contemporary urban characters.",
     lookingBack: "Narrative becomes another active system layer rather than a neutral explanation placed over the image.",
@@ -211,51 +226,51 @@ const projectDetails = {
   "control-shanghai-system": {
     type: "VERSION / LIVE SYSTEM",
     format: "Live audiovisual system / project version",
-    description: "A live-system version of CHILLCHILL CONTROL THE WORLD, retained from the former Wix gallery as part of the project's public version history.",
+    description: "A Shanghai system video related to CHILLCHILL CONTROL THE WORLD.",
     lookingBack: "This is presented as a version of the main project rather than a separate selected work.",
   },
   "audiovisual-live-alex": {
     type: "LIVE VERSION / COLLABORATION",
     format: "Audiovisual live performance",
     collaboration: "Alex Wang",
-    description: "A live entry from the development chain around A BRAVE NEW WORLD, retained from the former Wix gallery.",
+    description: "A live collaboration with Alex Wang, combining pre-recorded material and real-time imagery.",
     lookingBack: "The entry records the point at which a finished moving image began operating inside a live audiovisual context.",
   },
   "untitled-wix-entry": {
-    type: "UNTITLED LEGACY ENTRY",
+    type: "VIDEO / TITLE UNCONFIRMED",
     format: "Moving image / 39 seconds",
-    description: "This 39-second video was publicly embedded on the former Wix site without a project title. It is retained under that untitled status.",
+    description: "A 39-second moving-image entry. Its original title has not been confirmed.",
     stillOpen: "Title, date and final project status remain to be verified.",
   },
   "mobike-sisyphus": {
     type: "EARLIER MOVING IMAGE",
-    description: "An earlier moving-image work retained under the title used on the former Wix gallery. Its date is omitted until verified.",
+    description: "An earlier moving-image work.",
   },
   dubike: {
-    type: "EARLIER FRAGMENT / WIX ARCHIVE",
-    description: "Preserved from the former public Wix gallery as an earlier moving-image fragment. Its date and final project status are not normalised here.",
+    type: "EARLIER MOVING IMAGE",
+    description: "An earlier moving-image fragment.",
   },
   "ai-hat": {
-    type: "EARLIER FRAGMENT / WIX ARCHIVE",
-    description: "Preserved from the former public Wix gallery as an earlier moving-image fragment. Its date and final project status are not normalised here.",
+    type: "EARLIER MOVING IMAGE",
+    description: "An earlier moving-image fragment.",
   },
   "wonderful-day": {
-    type: "EARLIER FRAGMENT / WIX ARCHIVE",
-    description: "Preserved from the former public Wix gallery as an earlier moving-image fragment. Its date and final project status are not normalised here.",
+    type: "EARLIER MOVING IMAGE",
+    description: "An earlier moving-image fragment.",
   },
   exercise: {
-    type: "WIX ARCHIVE / IMAGE ENTRY",
-    format: "Image entry on the former Wix gallery",
-    description: "An image-based entry retained from the former public gallery. No video, date or additional project information is inferred here.",
+    type: "ARCHIVED STILL / VIDEO PENDING",
+    format: "Archived still; corresponding video not yet linked",
+    description: "A still is currently available. The corresponding video is not yet linked here.",
   },
   runway2: {
-    type: "RUNWAY / EARLIER VERSION",
-    description: "An alternate RUNWAY entry retained from the former Wix gallery as version history rather than a separate selected work.",
+    type: "MOVING IMAGE",
+    description: "Moving image retained under the title RUNWAY2. Its relationship to RUNWAY has not yet been confirmed.",
   },
   "lazhou-lamian": {
     type: "EARLY C4D EXPERIMENT",
     method: "C4D moving-image experiment",
-    description: "An early C4D experiment retained under the exact title used on Wix. The date and title wording remain unnormalised until verified.",
+    description: "An early C4D moving-image experiment.",
   },
   "the-garden": {
     type: "EXPANDED LIVE VERSION",
@@ -264,9 +279,9 @@ const projectDetails = {
     lookingBack: "The version makes visible how an independent short could be absorbed into a larger live field.",
   },
   "the-heart": {
-    type: "WIX ARCHIVE / IMAGE ENTRY",
-    format: "Image entry on the former Wix gallery",
-    description: "An image-based entry retained from the former public gallery. No video, date or additional project information is inferred here.",
+    type: "ARCHIVED STILL / VIDEO PENDING",
+    format: "Archived still; corresponding video not yet linked",
+    description: "A still is currently available. The corresponding video is not yet linked here.",
   },
 };
 
@@ -283,23 +298,61 @@ const resetDialogMedia = () => {
 
 const renderDialogGallery = (details, title) => {
   const gallery = details.gallery || [];
-  if (!gallery.length) return;
-  gallery.forEach((src, index) => {
+  gallery.forEach((item, index) => {
+    const entry = typeof item === "string" ? { src: item } : item;
+    const figure = document.createElement("figure");
     const image = document.createElement("img");
-    image.src = src;
-    image.alt = `${title} additional still ${index + 1}`;
+    image.src = entry.src;
+    image.alt = entry.alt || `${title} additional still ${index + 1}`;
     image.loading = "lazy";
     image.decoding = "async";
-    dialogGallery.append(image);
+    figure.append(image);
+    if (entry.caption) {
+      const caption = document.createElement("figcaption");
+      caption.textContent = entry.caption;
+      figure.append(caption);
+    }
+    dialogGallery.append(figure);
   });
-  dialogGallery.hidden = false;
+  dialogGallery.hidden = gallery.length === 0;
 };
 
 const projectUrl = (key) => {
+  const url = new URL(routeForProject(key), window.location.href);
+  url.searchParams.set("work", key);
+  return url;
+};
+
+const localProjectUrl = (key) => {
   const url = new URL(window.location.href);
   url.searchParams.set("work", key);
   url.hash = "";
   return url;
+};
+
+const relatedByKey = {
+  "brain-in-a-vat": [["a-brave-new-world", "A BRAVE NEW WORLD — short film"], ["audiovisual-live-alex", "With Alex Wang — live version"]],
+  "a-brave-new-world": [["brain-in-a-vat", "BRAIN IN A VAT — public film"], ["audiovisual-live-alex", "With Alex Wang — live version"]],
+  "audiovisual-live-alex": [["a-brave-new-world", "A BRAVE NEW WORLD — short film"], ["brain-in-a-vat", "BRAIN IN A VAT — public film"]],
+  "shaman-garden": [["the-garden", "THE GARDEN — expanded live version"]],
+  "the-garden": [["shaman-garden", "SHAMAN — independent short"]],
+  "control-the-world": [["control-shanghai-system", "Shanghai system — related video"]],
+  "control-shanghai-system": [["control-the-world", "CHILLCHILL CONTROL THE WORLD — project"]],
+};
+const renderRelatedWorks = (key) => {
+  relatedWorks.replaceChildren();
+  const related = relatedByKey[key] || [];
+  relatedWorks.hidden = related.length === 0;
+  if (!related.length) return;
+  const title = document.createElement("h3");
+  title.textContent = "RELATED WORKS & VERSIONS";
+  relatedWorks.append(title);
+  related.forEach(([slug, label]) => {
+    const link = document.createElement("a");
+    link.href = projectUrl(slug).href;
+    link.textContent = label + " ↗";
+    relatedWorks.append(link);
+  });
 };
 
 const openProject = (project, { syncUrl = true } = {}) => {
@@ -312,7 +365,7 @@ const openProject = (project, { syncUrl = true } = {}) => {
   copyProjectLink.innerHTML = 'COPY PROJECT LINK <span aria-hidden="true">↗</span>';
   if (syncUrl) {
     projectReturnUrl = `${window.location.pathname}${window.location.hash}`;
-    window.history.pushState({ work: key }, "", projectUrl(key));
+    window.history.pushState({ work: key }, "", localProjectUrl(key));
   }
 
   resetDialogMedia();
@@ -331,10 +384,17 @@ const openProject = (project, { syncUrl = true } = {}) => {
 
   dialogType.textContent = details.type || project.dataset.type || "ART";
   dialogTitle.textContent = project.dataset.title;
-  document.title = `${project.dataset.title} — CHILLCHILL`;
+  document.title = `${project.dataset.title} — CHILLCHILLSHIT`;
   dialogTitle.classList.toggle("is-long", project.dataset.title.length > 28);
   dialogYear.textContent = project.dataset.year || "";
   dialogDescription.textContent = details.description || project.dataset.description || "";
+  if (!videoId && !dialogDescription.textContent.includes("not yet linked")) {
+    dialogDescription.textContent += " A still is available; the video is not yet linked here.";
+  }
+  if (key === "control-the-world") {
+    dialogDescription.textContent += " In the completed performance the artist operates the hand. Other people have tested the interface informally; the full visitor-operated gallery installation remains an unrealised proposal.";
+  }
+  renderRelatedWorks(key);
   let hasFacts = false;
   factFields.forEach(([dataKey, rowSelector, valueSelector]) => {
     const value = details[dataKey] || project.dataset[dataKey] || "";
@@ -353,8 +413,11 @@ const openProject = (project, { syncUrl = true } = {}) => {
     hasEvidence ||= Boolean(value);
   });
   dialogEvidence.hidden = !hasEvidence;
+  notesDisclosure.hidden = !hasEvidence;
+  notesDisclosure.open = false;
   backgroundVideo.pause();
-  dialog.showModal();
+  if (!dialog.open) dialog.showModal();
+  dialog.scrollTop = 0;
 };
 
 projects.forEach((project) => {
@@ -378,7 +441,10 @@ const closeDialog = ({ restoreUrl = true } = {}) => {
   resetDialogMedia();
   document.title = siteTitle;
   if (restoreUrl) restoreProjectUrl();
-  if (dialog.open) dialog.close();
+  if (dialog.open) {
+    ignoreCloseRestore = !restoreUrl;
+    dialog.close();
+  }
 };
 
 dialog.querySelector(".dialog-close").addEventListener("click", () => closeDialog());
@@ -388,7 +454,8 @@ dialog.addEventListener("click", (event) => {
 dialog.addEventListener("close", () => {
   resetDialogMedia();
   document.title = siteTitle;
-  restoreProjectUrl();
+  if (!ignoreCloseRestore) restoreProjectUrl();
+  ignoreCloseRestore = false;
   resumeBackgroundVideo();
 });
 
@@ -403,19 +470,24 @@ copyProjectLink.addEventListener("click", async () => {
   }
 });
 
-window.addEventListener("popstate", () => {
+const openProjectFromUrl = () => {
   const key = new URL(window.location.href).searchParams.get("work");
-  if (!key && dialog.open) closeDialog({ restoreUrl: false });
-});
-
-const initialProjectKey = new URL(window.location.href).searchParams.get("work");
-if (initialProjectKey) {
-  const initialProject = projects.find((project) => getProjectKey(project) === initialProjectKey);
-  if (initialProject) {
-    projectReturnUrl = window.location.pathname;
-    openProject(initialProject, { syncUrl: false });
+  if (!key) {
+    if (dialog.open) closeDialog({ restoreUrl: false });
+    return;
   }
-}
+  const target = projects.find((project) => getProjectKey(project) === key);
+  if (target) {
+    projectReturnUrl = window.location.pathname;
+    openProject(target, { syncUrl: false });
+  } else if (knownProject(key)) {
+    // Keep old shared URLs working when a version moves from Works to Archive.
+    const destination = projectUrl(key);
+    if (destination.pathname !== window.location.pathname) window.location.replace(destination.href);
+  }
+};
+window.addEventListener("popstate", openProjectFromUrl);
+openProjectFromUrl();
 
 const sectionLinks = [...document.querySelectorAll('.site-header nav a[href^="#"]')];
 const headerNav = document.querySelector(".site-header nav");
