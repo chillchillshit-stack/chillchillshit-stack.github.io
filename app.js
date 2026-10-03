@@ -60,8 +60,8 @@ const evidenceFields = [
 ];
 const projects = [...document.querySelectorAll(".project")];
 const siteTitle = document.title;
-const selectedKeys = new Set(["body-sequencer", "awakened", "control-the-world", "chat", "runway", "cute", "brain-in-a-vat", "asian-sharing-heaven", "subway-gym"]);
-const archiveKeys = new Set(["a-brave-new-world", "shaman-garden", "inflatable", "occupy-today", "control-shanghai-system", "audiovisual-live-alex", "untitled-wix-entry", "mobike-sisyphus", "dubike", "ai-hat", "wonderful-day", "exercise", "runway2", "lazhou-lamian", "the-garden", "the-heart"]);
+const selectedKeys = new Set(["body-sequencer", "awakened", "control-the-world", "chat", "runway", "cute", "brain-in-a-vat", "shaman-garden", "a-brave-new-world", "inflatable", "asian-sharing-heaven", "subway-gym"]);
+const archiveKeys = new Set(["occupy-today", "control-shanghai-system", "audiovisual-live-alex", "untitled-wix-entry", "mobike-sisyphus", "dubike", "ai-hat", "wonderful-day", "exercise", "runway2", "lazhou-lamian", "the-garden", "the-heart"]);
 const knownProject = (key) => selectedKeys.has(key) || archiveKeys.has(key) || key === "human-sequencer";
 const routeForProject = (key) => selectedKeys.has(key) ? "./works.html" : archiveKeys.has(key) ? "./archive.html" : "./index.html";
 const notesDisclosure = document.createElement("details");
@@ -171,20 +171,20 @@ const projectDetails = {
     ],
   },
   "shaman-garden": {
-    type: "SHORT VIDEO / EXPANDED LIVE VERSION",
-    format: "Independent short video later contained within an expanded AV performance",
-    duration: "SHAMAN: 3'22\" / THE GARDEN: approximately 40 minutes",
-    method: "3D and internet-image mixing, strobe montage and live expansion",
+    type: "SHORT VIDEO",
+    format: "Independent short video",
+    duration: "3'22\"",
+    method: "3D and internet-image mixing; strobe montage",
     description: "SHAMAN was completed as an independent short before becoming part of the longer live version THE GARDEN, alongside additional material.",
     atTime: "The short mixed occupation imagery, internet memes, shared-economy signs and East Asian digital culture.",
     lookingBack: "The version chain shows how a self-contained video could enter a longer collective visual field without having been planned for that role from the start.",
   },
   "a-brave-new-world": {
-    type: "MOVING IMAGE / DEVELOPMENT VERSION",
-    format: "Short rendered moving image; later used as a pre-recorded module",
+    type: "SHORT FILM / 3D MOVING IMAGE",
+    format: "Short rendered moving image",
     duration: "3'48\"",
     method: "3D moving image; later switched alongside other clips and real-time game-engine imagery",
-    description: "A finished short moving-image work that later entered a longer mixed-source live system and the version chain preserved as BRAIN IN A VAT.",
+    description: "A short moving-image work shaped by shared bikes, urbanisation and post-internet aesthetics. It was completed as a self-contained film before later entering a mixed-source live system, whose output was preserved as BRAIN IN A VAT.",
     atTime: "The work began as a finished short shaped by shared bikes, urbanisation and post-internet aesthetics.",
     lookingBack: "Its later use as a module marks a turn from fixed image sequence toward a running relation between unlike sources.",
   },
@@ -214,7 +214,7 @@ const projectDetails = {
     lookingBack: "It preserves an earlier concern with systems and participation without claiming continuity was already understood.",
   },
   inflatable: {
-    type: "3D MOVING IMAGE / CONTEXT",
+    type: "3D MOVING IMAGE",
     format: "Single-channel HD video",
     duration: "3'29\"",
     method: "3D, video compositing and reality-based satire",
